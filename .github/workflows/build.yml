@@ -1,0 +1,52 @@
+name: Build
+
+on:
+  pull_request:
+    branches:
+      - '**'
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  continuous-integration: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - run: npm install
+      #Test
+      - run: npm run test:unit
+    
+  continuous-delivery:
+    needs: continuous-integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: deploy to heroku development enviroment
+        uses: onekiloparsec/heroku-node-deploy-subfolder@v1.0.4
+        with:
+          api_key: ${{ secrets.DEV_API_KEY }}
+          app_name: ${{ secrets.DEV_APP_NAME }}
+          email: ${{ secrets.DEV_EMAIL }}
+          branch: "master"
+
+  continuous-deployment:
+    needs: continuous-integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: deploy to heroku production enviroment
+        uses: akhileshns/heroku-deploy@v3.5.6
+        with:
+          heroku_api_key: ${{ secrets.RELEASE_API_KEY }}
+          heroku_app_name: ${{ secrets.RELEASE_APP_NAME }}
+          heroku_email: ${{ secrets.RELEASE_EMAIL }}
+
+
+
+
+
+          
