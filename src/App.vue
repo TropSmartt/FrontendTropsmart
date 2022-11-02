@@ -43,14 +43,13 @@
       <v-toolbar-title class="secondary--text" style="text-style:bold"></v-toolbar-title>
         <a class="navbar-brand">TropSmart</a> 
       <v-spacer></v-spacer>
-      <v-btn class="ml-5" dark large color="#007BFF" :to="{name: 'SignUp'}" v-if="!this.currentUser()">
-        <span class="mr-2" >Registrar</span>
+      <v-btn class="ml-2" outlined medium color="#007BFF" :to="{name: 'SignUp'}" v-if="!this.currentUser()">
+        <span class="mr-2" >Registro</span>
         <v-icon>mdi-account</v-icon>
       </v-btn>
-
-      <v-btn  class="ml-5" dark large color="#007BFF" ref="signInButtonRef" @click="signManager">
+      <v-btn  class="ml-2" dark medium color="#007BFF" ref="signInButtonRef" @click="signManager">
         <span class="mr-2" v-if= "this.$store.state.auth.user">Cerrar Sesión</span>
-        <span class="mr-2" v-else>Ingresar</span>
+        <span class="mr-2" v-else></span>
       <v-icon>mdi-login</v-icon>
       </v-btn>
     </v-app-bar>
@@ -58,7 +57,7 @@
 
 
     <v-footer app>
-      <span>&copy; 2020</span>
+      <span>&copy; 2022</span>
     </v-footer>
   </v-app>
 </template>

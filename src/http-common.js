@@ -8,7 +8,7 @@ export default axios.create({
     //baseURL:"http://localhost:8085/",
 
     //HEROKU BACKEND
-    baseurl: "https://backend-tropsmart.herokuapp.com/",
+    baseURL: "https://backend-tropsmart.herokuapp.com/",
 
     params: {"Access-Control-Allow-Origin": "*"},
     headers: {
