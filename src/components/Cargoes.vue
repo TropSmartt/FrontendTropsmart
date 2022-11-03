@@ -132,8 +132,8 @@ export default {
             }
         },
         retrieveCargoes() {
-          if(this.$store.state.auth.user.roleId == 1){
-            TsDataService.getAllCargoesByCustomerId(this.$store.state.auth.user.roleId)
+          if(this.$store.state.auth.user.role == 1){
+            TsDataService.getAllCargoesByCustomerId(this.$store.state.auth.user.id)
             .then(response => {
               this.cargoes = response.data.resourceList;
               console.log(this.cargoes);
