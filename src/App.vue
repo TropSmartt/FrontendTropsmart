@@ -2,7 +2,6 @@
 <!--Aplication main view-->
 <template>
   <v-app id="inspire">
-  
     <v-navigation-drawer v-model="drawer" app clipped :src="bg">
         <v-list dense nav class="py-0" v-if= "this.$store.state.auth.user" >
           <v-list-item >
@@ -32,7 +31,6 @@
         <h3>Inicia sesion para ver funcionalidades</h3>
       </div>
       </v-navigation-drawer>
- 
         <v-content>
         <router-view/>
       </v-content>
@@ -41,15 +39,14 @@
     <v-app-bar app clipped-left >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="secondary--text" style="text-style:bold"></v-toolbar-title>
-        <a class="navbar-brand">TropSmart</a> 
+        <a class="navbar-brand">TropSmart</a>
       <v-spacer></v-spacer>
       <v-btn class="ml-2" outlined medium color="#007BFF" :to="{name: 'SignUp'}" v-if="!this.currentUser()">
         <span class="mr-2" >Registro</span>
         <v-icon>mdi-account</v-icon>
       </v-btn>
       <v-btn  class="ml-2" dark medium color="#007BFF" ref="signInButtonRef" @click="signManager">
-        <span class="mr-2" v-if= "this.$store.state.auth.user">Cerrar Sesión</span>
-        <span class="mr-2" v-else></span>
+        <span class="mr-2">Cerrar Sesión</span>
       <v-icon>mdi-login</v-icon>
       </v-btn>
     </v-app-bar>
@@ -148,9 +145,8 @@
         },
         redirectManager(path) {
             this.$router.push(path).catch(()=>{});
-        },  
+        },
     },
-    
   }
 </script>
 

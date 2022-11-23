@@ -1,5 +1,7 @@
 <template>
-  <v-app id="inspire" style="background-color:#1565C0">
+  <v-app id="inspire" style="
+      background: rgb(131, 58, 180);
+      background: linear-gradient(36deg, rgba(131, 58, 180, 1) 19%, rgba(43, 29, 253, 1) 91%);">
     <v-content>
       <v-container class ="fill-height" fluid>
         <v-row align="center" justify="center">
